@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>Надежда Вишневская — практический психолог</title>
+  <meta name="description" content="Психологическое консультирование взрослых 18+. Работа с чувствами, отношениями, личными границами и последствиями психотравмы. Онлайн, Санкт-Петербург и Петергоф.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Надежда Вишневская — практический психолог">
+  <meta property="og:description" content="К себе с Надеждой. Слышать себя. Различать своё. Выбирать. Онлайн и очно в Санкт-Петербурге и Петергофе.">
+  <style>
+    /* Палитра и базовая типографика */
+    :root {
+      --paper: #f7f4ee;
+      --surface: #fffdf8;
+      --plum: #51323f;
+      --plum-hover: #3d2330;
+      --ink: #333835;
+      --muted: #62675f;
+      --sage: #e1e7dc;
+      --sage-dark: #475744;
+      --line: #d9d8cd;
+      --rose: #eee3df;
+      --width: 1180px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    body, button, a { -webkit-tap-highlight-color: transparent; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { color: var(--plum); }
+    h1, h2, .brand-name, .statement {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+    h1 { font-size: clamp(2.9rem, 5.8vw, 5.3rem); line-height: 1.06; letter-spacing: -.045em; }
+    h2 { font-size: clamp(2.1rem, 3.7vw, 3.4rem); line-height: 1.15; letter-spacing: -.035em; }
+    h3 { font-size: 1.16rem; line-height: 1.4; font-weight: 600; }
+    p + p { margin-top: 16px; }
+    a { color: inherit; text-underline-offset: 5px; }
+    button { font: inherit; }
+    a, button { touch-action: manipulation; }
+    button, .button { transition: background .2s, color .2s, border-color .2s, transform .2s; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--sage-dark);
+      outline-offset: 5px;
+    }
+    a:active, button:active { transform: translateY(1px); }
+    svg { display: block; max-width: 100%; }
+    .container { width: min(var(--width), calc(100% - 64px)); margin-inline: auto; }
+    .section { padding-block: 108px; scroll-margin-top: 20px; }
+    .eyebrow {
+      display: block;
+      margin-bottom: 22px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+    }
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+    .section-heading p { max-width: 470px; color: var(--muted); }
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      min-height: 52px;
+      padding: 13px 23px;
+      border: 1px solid var(--plum);
+      border-radius: 4px;
+      background: var(--plum);
+      color: #fffdf8;
+      text-decoration: none;
+      text-align: center;
+      font-size: .9rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .button:hover { background: var(--plum-hover); border-color: var(--plum-hover); }
+    .button-secondary { color: var(--plum); background: transparent; border-color: #b8a6ac; }
+    .button-secondary:hover { color: var(--plum); background: var(--rose); border-color: var(--plum); }
+    .button-arrow { font-size: 1.2rem; font-weight: 400; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 10px;
+      left: 16px;
+      transform: translateY(-150%);
+      padding: 12px 20px;
+      background: var(--plum);
+      color: white;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* Навигация */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner { display: flex; align-items: center; gap: 32px; min-height: 88px; }
+    .brand { text-decoration: none; flex-shrink: 0; }
+    .brand-name { display: block; font-size: 1.4rem; color: var(--plum); letter-spacing: -.025em; }
+    .brand-sub { display: block; margin-top: 1px; color: var(--muted); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; }
+    .nav { display: flex; align-items: center; gap: 26px; margin-left: auto; }
+    .nav a { text-decoration: none; font-size: .85rem; }
+    .nav a:hover { color: var(--plum); text-decoration: underline; }
+    .header-cta { min-height: 42px; padding: 9px 18px; font-size: .8rem; }
+    .menu-toggle { display: none; }
+
+    /* Первый экран и авторская графика */
+    .hero { padding-block: 78px 72px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 36px; }
+    .hero .eyebrow { margin-bottom: 24px; }
+    .profession { margin-top: 22px; color: var(--plum); font-size: .95rem; }
+    .hero-slogan { margin-top: 30px; font-family: Georgia, serif; font-size: clamp(1.4rem, 2.1vw, 1.85rem); color: var(--plum); line-height: 1.45; }
+    .hero-description { max-width: 530px; margin-top: 20px; color: var(--muted); }
+    .locations { margin-top: 22px; font-size: .82rem; color: var(--sage-dark); }
+    .hero .actions { margin-top: 32px; }
+    .hero-note { margin-top: 15px; font-size: .76rem; color: var(--muted); }
+    .hero-art { position: relative; padding: 12px 0 0; }
+    .hero-art svg { width: 100%; height: auto; }
+    .art-caption { margin-top: 14px; text-align: center; color: var(--muted); font-size: .72rem; letter-spacing: .08em; }
+    .hero-bottom {
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
+      margin-top: 64px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .78rem;
+    }
+    .hero-bottom span:last-child { color: var(--plum); }
+
+    /* Темы обращений */
+    .topics { background: var(--surface); border-block: 1px solid var(--line); }
+    .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 32px; }
+    .topic-card { padding: 26px 0 28px; border-top: 1px solid var(--line); }
+    .topic-number { color: var(--sage-dark); font-size: .75rem; display: block; margin-bottom: 18px; }
+    .topic-card h3 { margin-bottom: 12px; }
+    .topic-card p { color: var(--muted); font-size: .94rem; }
+    .section-note { margin-top: 32px; padding-left: 20px; border-left: 2px solid #8b9983; max-width: 750px; color: var(--sage-dark); }
+
+    /* Подход */
+    .approach-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; }
+    .approach-intro { margin-top: 28px; color: var(--muted); }
+    .principles { display: grid; gap: 0; }
+    .principle { padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .principle:first-child { padding-top: 0; }
+    .principle h3 { margin-bottom: 10px; }
+    .principle p { color: var(--muted); font-size: .95rem; }
+    .qualifications {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+      border-top: 1px solid var(--line);
+      margin-top: 56px;
+      padding-top: 28px;
+    }
+    .qualifications-title { font-size: .9rem; font-weight: 600; color: var(--plum); }
+    .qualifications-list { margin: 0; padding: 0; list-style: none; }
+    .qualifications-list li { display: flex; gap: 8px; padding: 6px 0; font-size: .88rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+    .qualifications-list li:last-child { border-bottom: 0; }
+    .qualifications-list strong { color: var(--plum); font-weight: 600; white-space: nowrap; }
+
+    /* Стоимость */
+    .formats { background: #eeeFE7; }
+    .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .format-card {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--surface);
+    }
+    .format-card.featured { background: var(--plum); color: #f6efed; border-color: var(--plum); }
+    .format-label { font-size: .7rem; color: var(--sage-dark); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 20px; }
+    .featured .format-label { color: #e4d6cf; }
+    .format-card h3 { min-height: 3em; }
+    .featured h3 { color: #fffdf8; }
+    .format-meta { color: var(--muted); font-size: .84rem; margin-top: 14px; }
+    .featured .format-meta { color: #e6dcd9; }
+    .price { margin-top: 28px; color: var(--plum); font-size: 2rem; font-family: Georgia, serif; line-height: 1.2; }
+    .featured .price { color: #fffdf8; }
+    .format-description { margin-top: 18px; margin-bottom: 26px; color: var(--muted); font-size: .87rem; }
+    .featured .format-description { color: #e6dcd9; }
+    .format-card .button { margin-top: auto; font-size: .82rem; }
+    .featured .button { background: var(--paper); color: var(--plum); border-color: var(--paper); }
+    .featured .button:hover { background: var(--rose); border-color: var(--rose); }
+    .format-footnote { color: var(--muted); font-size: .84rem; margin-top: 26px; }
+
+    /* О методе */
+    .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .method-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 340px;
+      background: var(--sage);
+      border-radius: 180px 180px 4px 4px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .method-visual::before, .method-visual::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 250px;
+      height: 250px;
+      border: 1px solid #a9b3a1;
+      border-radius: 50%;
+    }
+    .method-visual::before { left: -100px; bottom: -90px; }
+    .method-visual::after { right: -90px; top: -90px; }
+    .statement { max-width: 300px; padding: 30px; color: var(--sage-dark); font-size: 2.5rem; line-height: 1.3; text-align: center; }
+    .method-copy h2 { margin-bottom: 26px; }
+    .method-copy p { color: var(--muted); }
+    .method-disclaimer { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); font-size: .83rem; }
+
+    /* Начало работы и вопросы */
+    .start { border-top: 1px solid var(--line); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 42px; list-style: none; margin: 48px 0 0; padding: 0; }
+    .step { border-top: 1px solid #a9b3a1; padding-top: 24px; }
+    .step-number { display: block; color: var(--sage-dark); font-family: Georgia, serif; font-size: 2.2rem; margin-bottom: 24px; line-height: 1; }
+    .step h3 { margin-bottom: 13px; }
+    .step p { color: var(--muted); font-size: .94rem; }
+    .faq { padding-top: 0; }
+    .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; }
+    .faq-intro p { margin-top: 24px; color: var(--muted); }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      text-align: left;
+      border: 0;
+      padding: 23px 2px;
+      background: transparent;
+      color: var(--plum);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .faq-question:hover { color: var(--sage-dark); }
+    .faq-icon { flex: 0 0 24px; font-size: 1.5rem; font-weight: 400; line-height: 1; transition: transform .2s; text-align: center; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { padding: 0 36px 24px 2px; color: var(--muted); font-size: .94rem; }
+    [hidden] { display: none !important; }
+
+    /* Контакты и подвал */
+    .contact { padding-block: 78px; background: var(--sage); }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: center; }
+    .contact h2 { max-width: 600px; }
+    .contact-description { margin-top: 24px; max-width: 600px; color: var(--sage-dark); }
+    .contact-actions { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+    .contact-small { color: var(--sage-dark); font-size: .78rem; margin-top: 6px; text-align: center; }
+    .footer { padding-block: 48px 28px; }
+    .footer-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .footer-name { color: var(--plum); font-family: Georgia, serif; font-size: 1.4rem; }
+    .footer-about { margin-top: 12px; color: var(--muted); font-size: .84rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 18px; font-size: .87rem; }
+    .footer-links a:hover { color: var(--plum); }
+    .footer-disclaimer { color: var(--muted); font-size: .79rem; }
+    .footer-bottom { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: .73rem; display: flex; justify-content: space-between; gap: 24px; }
+
+    /* Планшет и смартфон */
+    @media (max-width: 1050px) {
+      .header-inner { gap: 20px; }
+      .nav { gap: 18px; }
+      .nav a { font-size: .78rem; }
+      .brand-name { font-size: 1.2rem; }
+      .hero-grid { grid-template-columns: 1.2fr .8fr; gap: 12px; }
+      .hero .actions { flex-direction: column; align-items: flex-start; }
+      .approach-grid { gap: 54px; }
+      .format-card { padding: 24px; }
+      .method-grid, .faq-grid { gap: 44px; }
+    }
+    @media (max-width: 820px) {
+      .container { width: min(var(--width), calc(100% - 40px)); }
+      .section { padding-block: 76px; }
+      .header-inner { min-height: 76px; flex-wrap: wrap; gap: 0; padding-block: 14px; }
+      .brand { margin-right: auto; }
+      .header-cta { margin-left: 14px; margin-right: 14px; }
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: transparent;
+        color: var(--plum);
+        cursor: pointer;
+      }
+      .menu-toggle:hover { background: var(--rose); }
+      .menu-toggle svg { width: 20px; height: 20px; }
+      .menu-toggle[aria-expanded="true"] .menu-lines { display: none; }
+      .menu-toggle .menu-cross { display: none; }
+      .menu-toggle[aria-expanded="true"] .menu-cross { display: block; }
+      .nav { width: 100%; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--line); display: none; flex-direction: column; align-items: stretch; gap: 0; }
+      .nav.is-open { display: flex; }
+      .nav a { padding: 12px 4px; font-size: .95rem; }
+      .hero { padding-block: 54px 40px; }
+      .hero-grid { grid-template-columns: 1fr .7fr; }
+      .hero-art { align-self: center; }
+      .hero-bottom { margin-top: 42px; }
+      .section-heading { gap: 30px; grid-template-columns: 1fr 1fr; }
+      .topic-grid { grid-template-columns: repeat(2, 1fr); }
+      .format-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid { grid-template-columns: 1fr; gap: 38px; }
+      .approach-intro { max-width: 660px; }
+      .qualifications { grid-template-columns: 1fr; gap: 22px; margin-top: 40px; }
+      .method-grid { grid-template-columns: .8fr 1.2fr; gap: 30px; }
+      .statement { font-size: 2rem; }
+      .method-visual { min-height: 360px; }
+      .steps { gap: 24px; }
+      .faq { padding-top: 0; }
+      .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-actions { max-width: 420px; }
+    }
+    @media (max-width: 580px) {
+      html { scroll-padding-top: 88px; }
+      .container { width: calc(100% - 36px); }
+      .section { padding-block: 60px; }
+      .brand-name { font-size: 1.07rem; }
+      .brand-sub { font-size: .55rem; letter-spacing: .08em; }
+      .header-cta { font-size: .72rem; padding: 9px 11px; margin-inline: 8px; }
+      .menu-toggle { width: 40px; height: 42px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+      .hero .eyebrow { font-size: .67rem; }
+      .hero-slogan { margin-top: 24px; font-size: 1.45rem; }
+      .hero .actions { align-items: stretch; }
+      .hero-art { width: min(100%, 350px); margin-inline: auto; }
+      .hero-bottom { margin-top: 30px; flex-direction: column; gap: 8px; }
+      .section-heading { grid-template-columns: 1fr; gap: 22px; margin-bottom: 32px; }
+      .eyebrow { margin-bottom: 16px; }
+      .topic-grid, .format-grid, .method-grid, .steps, .footer-top { grid-template-columns: 1fr; }
+      .topic-card { padding-block: 23px; }
+      .topic-number { margin-bottom: 10px; }
+      .format-card { padding: 27px; }
+      .format-card h3 { min-height: auto; }
+      .format-description { margin-bottom: 24px; }
+      .method-grid { gap: 36px; }
+      .method-visual { min-height: 260px; max-width: 360px; width: 100%; margin-inline: auto; }
+      .statement { font-size: 2.2rem; }
+      .steps { gap: 28px; margin-top: 32px; }
+      .step-number { margin-bottom: 18px; }
+      .faq { padding-top: 0; }
+      .faq-question { font-size: .96rem; gap: 16px; }
+      .contact { padding-block: 60px; }
+      .contact-actions { max-width: none; }
+      .footer-top { gap: 30px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+      .qualifications { margin-top: 32px; padding-top: 22px; }
+      .qualifications-list strong { white-space: normal; }
+    }
+
+    /* Смартфоны 320–390 px: компактная шапка */
+    @media (max-width: 390px) {
+      .header-inner { min-height: 64px; flex-wrap: nowrap; padding-block: 8px; }
+      .brand { min-width: 0; flex-shrink: 1; }
+      .brand-name { font-size: 1.05rem; letter-spacing: -.02em; line-height: 1.25; white-space: nowrap; }
+      .brand-sub { font-size: 13px; letter-spacing: .05em; line-height: 1.35; }
+      .header-cta { display: none; }
+      .menu-toggle { width: 40px; height: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+    @media print {
+      .header { position: static; }
+      .menu-toggle, .nav, .header-cta { display: none; }
+      .section { padding-block: 30px; }
+      .faq-answer[hidden] { display: block !important; }
+      .format-card, .topic-card, .step { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#main" aria-label="К себе с Надеждой — начало страницы">
+        <span class="brand-name">К себе с Надеждой</span>
+        <span class="brand-sub">Психологическое консультирование</span>
+      </a>
+      <nav class="nav" id="navigation" aria-label="Основная навигация">
+        <a href="#topics">С чем обратиться</a>
+        <a href="#approach">Мой подход</a>
+        <a href="#formats">Форматы и цены</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <a class="button header-cta" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Записаться <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <g class="menu-lines"><path d="M3 7h18M3 12h18M3 17h18"/></g>
+          <g class="menu-cross"><path d="m5 5 14 14M19 5 5 19"/></g>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Психологическое консультирование · 18+</span>
+            <h1 id="hero-title">Надежда<br>Вишневская</h1>
+            <p class="profession">Практический психолог · специалист по работе с психотравмой</p>
+            <p class="hero-slogan">Слышать себя. Различать своё. Выбирать.</p>
+            <p class="hero-description">Помогаю исследовать сложные чувства, отношения и влияние прошлого опыта на настоящую жизнь. С вниманием к вашим ценностям, темпу и праву выбирать.</p>
+            <p class="locations">Онлайн · Санкт-Петербург · Петергоф</p>
+            <div class="actions">
+              <a class="button" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Записаться на знакомство <span class="button-arrow" aria-hidden="true">↗</span></a>
+              <a class="button button-secondary" href="https://www.b17.ru/vishnevskaya_nadezhda/" target="_blank" rel="noopener noreferrer">Посмотреть профиль на B17</a>
+            </div>
+            <p class="hero-note">Первая ознакомительная встреча — бесплатно, 15–25 минут.</p>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 480 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M72 485V229C72 125 141 51 239 51C337 51 406 125 406 229V485H72Z" fill="#E3E7DB"/>
+              <path d="M236 51C137 51 72 129 72 229V485H237V51Z" fill="#D5DDCC"/>
+              <path d="M238 127C316 127 369 188 369 265V485H238V127Z" fill="#EDE3DA"/>
+              <path d="M148 485V280C148 217 190 172 249 172C308 172 350 217 350 280V485" stroke="#89967E" stroke-width="1.2"/>
+              <path d="M176 485V298C176 248 207 214 249 214C291 214 322 248 322 298V485" stroke="#89967E" stroke-width="1.2"/>
+              <path d="M205 485V318C205 283 223 258 249 258C275 258 293 283 293 318V485" stroke="#89967E" stroke-width="1.2"/>
+              <ellipse cx="282" cy="461" rx="103" ry="24" fill="#C9CBBE"/>
+              <path d="M181 445C181 415 208 396 243 396H299C328 396 350 415 350 441C350 468 319 481 278 481H244C210 481 181 469 181 445Z" fill="#744D5B"/>
+              <path d="M200 407C200 391 215 381 235 381H280C299 381 313 391 313 406C313 422 290 430 259 430H240C217 430 200 421 200 407Z" fill="#A38B86"/>
+              <path d="M45 485H434" stroke="#87917F" stroke-width="1.2"/>
+              <circle cx="355" cy="104" r="34" fill="#F7F4EE"/>
+              <path d="M34 356C64 337 81 313 89 282" stroke="#8B9983" stroke-width="1.2"/>
+              <path d="M395 343C416 317 428 290 432 262" stroke="#8B9983" stroke-width="1.2"/>
+            </svg>
+            <p class="art-caption">Место для внимания к себе</p>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <span>Взрослый разговор. Ваш темп. Совместное исследование.</span>
+          <span>Очно — по предварительной договорённости</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section topics" id="topics" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Ваш запрос</span>
+            <h2 id="topics-title">С чем можно<br>обратиться</h2>
+          </div>
+          <p>Не обязательно заранее точно формулировать, что происходит. Можно начать с того, что сейчас беспокоит или требует вашего внимания.</p>
+        </div>
+        <div class="topic-grid">
+          <article class="topic-card">
+            <span class="topic-number" aria-hidden="true">01 / Чувства</span>
+            <h3>Когда внутри много напряжения</h3>
+            <p>Тревога, вина, стыд, страх, злость и другие чувства, с которыми трудно разобраться самостоятельно.</p>
+          </article>
+          <article class="topic-card">
+            <span class="topic-number" aria-hidden="true">02 / Отношение к себе</span>
+            <h3>Когда сложно услышать себя</h3>
+            <p>Самокритика, сомнения в себе, трудности с пониманием собственных желаний и потребностей.</p>
+          </article>
+          <article class="topic-card">
+            <span class="topic-number" aria-hidden="true">03 / Границы</span>
+            <h3>Когда трудно сказать «нет»</h3>
+            <p>Личные границы, право на свой выбор и различение своей и чужой ответственности.</p>
+          </article>
+          <article class="topic-card">
+            <span class="topic-number" aria-hidden="true">04 / Отношения</span>
+            <h3>Когда повторяется болезненное</h3>
+            <p>Трудности в отношениях, повторяющиеся сценарии и влияние прошлого болезненного или травматического опыта.</p>
+          </article>
+          <article class="topic-card">
+            <span class="topic-number" aria-hidden="true">05 / Перемены</span>
+            <h3>Когда важно определить направление</h3>
+            <p>Выбор, изменения в жизни или конкретная ситуация, которую хочется рассмотреть сейчас.</p>
+          </article>
+          <article class="topic-card">
+            <span class="topic-number" aria-hidden="true">06 / Материнство</span>
+            <h3>Когда материнство вызывает тревогу</h3>
+            <p>Сложные переживания, внутреннее напряжение и трудности, связанные с материнством.</p>
+          </article>
+        </div>
+        <p class="section-note">Иногда одной встречи достаточно, чтобы увидеть важное и определить следующий шаг. Не каждый запрос предполагает длительную работу.</p>
+      </div>
+    </section>
+
+    <section class="section" id="approach" aria-labelledby="approach-title">
+      <div class="container approach-grid">
+        <div>
+          <span class="eyebrow">Мой подход</span>
+          <h2 id="approach-title">Как я работаю</h2>
+          <p class="approach-intro">Для меня психологическая работа — это встреча двух взрослых людей. Вы приносите свой опыт и знание собственной жизни, я — профессиональное внимание и устойчивость.</p>
+          <p class="approach-intro">Основная модальность моей работы — Терапия идентичности. Подходящий формат мы обсуждаем вместе, исходя из вашего запроса.</p>
+        </div>
+        <div>
+          <div class="principles">
+            <article class="principle">
+              <h3>Вы остаётесь участником, который выбирает</h3>
+              <p>Ваши чувства, опыт, ценности и темп имеют значение. Вы можете отказаться от обсуждения любой темы, сделать паузу или остановить работу.</p>
+            </article>
+            <article class="principle">
+              <h3>Внимание к вашим ответам</h3>
+              <p>Моя задача — помогать вам лучше слышать себя, различать своё и чужое, замечать возможности выбора и опоры. Готовые ответы за вас я не определяю.</p>
+            </article>
+            <article class="principle">
+              <h3>Бережность и профессиональная устойчивость</h3>
+              <p>В работе важны уважение к вашему взрослому опыту, ясность договорённостей и внимание к тому, что происходит между нами.</p>
+            </article>
+          </div>
+        </div>
+        <div class="qualifications">
+          <p class="qualifications-title">Образование и квалификация</p>
+          <ul class="qualifications-list">
+            <li><strong>Профессиональная переподготовка</strong><span> — квалификация «Практический психолог»</span></li>
+            <li><strong>Базовый курс Комплексной сказкотерапии</strong><span> — квалификация «Сказкотерапевт-практик»</span></li>
+            <li><strong>Основная рабочая модальность</strong><span> — Терапия идентичности</span></li>
+            <li><strong>Практика</strong><span> — с февраля 2024 года</span></li>
+            <li><strong>Профессиональное развитие</strong><span> — продолжаются обучение, супервизии и личная психологическая работа</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section formats" id="formats" aria-labelledby="formats-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Время и стоимость</span>
+            <h2 id="formats-title">Форматы работы</h2>
+          </div>
+          <p>Можно начать со знакомства, прийти с отдельной ситуацией или договориться о регулярных встречах.</p>
+        </div>
+        <div class="format-grid">
+          <article class="format-card featured">
+            <span class="format-label">Для новых клиентов</span>
+            <h3>Ознакомительная встреча</h3>
+            <p class="format-meta">15–25 минут</p>
+            <p class="price">Бесплатно</p>
+            <p class="format-description">Возможность познакомиться, коротко обсудить запрос и понять, подходит ли дальнейшая работа. Это не психологическая консультация.</p>
+            <a class="button" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Записаться на знакомство <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="format-card">
+            <span class="format-label">Онлайн</span>
+            <h3>Индивидуальная консультация</h3>
+            <p class="format-meta">60 минут · одна встреча</p>
+            <p class="price">4 000 ₽</p>
+            <p class="format-description">Для конкретной ситуации или исследования того, что сейчас важно. Встреча проходит дистанционно.</p>
+            <a class="button button-secondary" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Обсудить встречу <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="format-card">
+            <span class="format-label">Санкт-Петербург · Петергоф</span>
+            <h3>Индивидуальная консультация очно</h3>
+            <p class="format-meta">60 минут · одна встреча</p>
+            <p class="price">4 500 ₽</p>
+            <p class="format-description">Личная встреча. Место и время согласовываются заранее, по предварительной договорённости.</p>
+            <a class="button button-secondary" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Обсудить встречу <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="format-card">
+            <span class="format-label">Четыре онлайн-встречи</span>
+            <h3>Регулярная индивидуальная работа</h3>
+            <p class="format-meta">Цикл из четырёх встреч</p>
+            <p class="price">15 000 ₽</p>
+            <p class="format-description">В начале — примерно одна встреча в неделю. Частота может меняться по договорённости. Новый цикл не начинается автоматически.</p>
+            <a class="button button-secondary" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Обсудить формат <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="format-card">
+            <span class="format-label">Онлайн или очно</span>
+            <h3>Процесс в модальности Терапия идентичности</h3>
+            <p class="format-meta">1,5–2 часа</p>
+            <p class="price">5 000 ₽</p>
+            <p class="format-description">Отдельный формат для исследования внутреннего опыта. Онлайн или очно по предварительной договорённости.</p>
+            <a class="button button-secondary" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Обсудить формат <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="format-card">
+            <span class="format-label">Для действующих клиентов</span>
+            <h3>Короткая консультация</h3>
+            <p class="format-meta">До 30 минут</p>
+            <p class="price">2 000 ₽</p>
+            <p class="format-description">Короткая встреча по текущему вопросу для тех, с кем мы уже работаем. Возможность и время согласовываются заранее.</p>
+            <a class="button button-secondary" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Согласовать время <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <p class="format-footnote">Работаю со взрослыми от 18 лет. Формат, время и организационные детали обсуждаем до начала работы.</p>
+      </div>
+    </section>
+
+    <section class="section" id="method" aria-labelledby="method-title">
+      <div class="container method-grid">
+        <div class="method-visual" aria-hidden="true">
+          <p class="statement">Замечать себя.<br>Находить<br>свои опоры.</p>
+        </div>
+        <div class="method-copy">
+          <span class="eyebrow">О модальности</span>
+          <h2 id="method-title">Что такое Терапия идентичности</h2>
+          <p>Это психологический подход для исследования внутреннего опыта: чувств, потребностей, конфликтов и того, как болезненные или травматические события прошлого могут влиять на настоящую жизнь.</p>
+          <p>В центре внимания — ваше восприятие себя, внутренние противоречия и возможность лучше различать собственные переживания, желания и выбор.</p>
+          <p>Подход не является универсальным решением. Его уместность и формат работы мы обсуждаем с учётом вашего запроса.</p>
+          <p class="method-disclaimer">Терапия идентичности — психологический подход. Работа ведётся в рамках психологического консультирования и не является медицинской услугой.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section start" id="start" aria-labelledby="start-title">
+      <div class="container">
+        <span class="eyebrow">Первый шаг</span>
+        <h2 id="start-title">Как начать</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-number" aria-hidden="true">01</span>
+            <h3>Написать мне</h3>
+            <p>Перейдите в <a href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Telegram</a>. Можно коротко рассказать, что вас привело, или просто написать: «Хочу записаться на знакомство».</p>
+          </li>
+          <li class="step">
+            <span class="step-number" aria-hidden="true">02</span>
+            <h3>Познакомиться</h3>
+            <p>На бесплатной встрече длительностью 15–25 минут коротко обсудим запрос. Вы сможете задать вопросы о работе и прислушаться к своим впечатлениям.</p>
+          </li>
+          <li class="step">
+            <span class="step-number" aria-hidden="true">03</span>
+            <h3>Выбрать дальнейший формат</h3>
+            <p>Вместе определим, подходит ли вам работа со мной и какой формат будет уместен. Решение о продолжении остаётся за вами.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-intro">
+          <span class="eyebrow">Перед встречей</span>
+          <h2 id="faq-title">Вопросы,<br>которые возникают</h2>
+          <p>Здесь — о формате и договорённостях. Остальное можно обсудить при знакомстве.</p>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>
+              <button class="faq-question" id="question-1" type="button" aria-expanded="true" aria-controls="answer-1">
+                Можно ли прийти с одной конкретной ситуацией?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="answer-1" role="region" aria-labelledby="question-1">
+              <p>Да. Можно посвятить встречу одной ситуации, решению или переживанию. Иногда одной встречи достаточно, чтобы увидеть важное и определить следующий шаг. Дальнейшая работа обсуждается только при необходимости и вашем желании.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button class="faq-question" id="question-2" type="button" aria-expanded="true" aria-controls="answer-2">
+                Обязательно ли начинать регулярную работу?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="answer-2" role="region" aria-labelledby="question-2">
+              <p>Нет. Можно начать с одной консультации. Регулярность мы обсуждаем вместе, исходя из запроса и ваших возможностей. Даже при выборе цикла из четырёх встреч новый цикл не начинается автоматически.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button class="faq-question" id="question-3" type="button" aria-expanded="true" aria-controls="answer-3">
+                Можно ли проводить встречи онлайн?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="answer-3" role="region" aria-labelledby="question-3">
+              <p>Да, я работаю онлайн со взрослыми от 18 лет. Для встречи важно выбрать спокойное место, где вы сможете говорить без посторонних, и проверить связь. Организационные детали согласуем заранее.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button class="faq-question" id="question-4" type="button" aria-expanded="true" aria-controls="answer-4">
+                Сколько длится консультация?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="answer-4" role="region" aria-labelledby="question-4">
+              <p>Индивидуальная консультация онлайн или очно длится 60 минут. Процесс в модальности Терапия идентичности — 1,5–2 часа. Короткая консультация для действующих клиентов — до 30 минут, ознакомительная встреча — 15–25 минут.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button class="faq-question" id="question-5" type="button" aria-expanded="true" aria-controls="answer-5">
+                Что происходит на ознакомительной встрече?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="answer-5" role="region" aria-labelledby="question-5">
+              <p>Мы знакомимся, коротко обсуждаем ваш запрос и возможные форматы дальнейшей работы. Вы можете задать вопросы и понять, подходит ли вам такой контакт. Встреча бесплатная и не является психологической консультацией.</p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button class="faq-question" id="question-6" type="button" aria-expanded="true" aria-controls="answer-6">
+                Можно ли остановить работу или отказаться от обсуждения темы?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="answer-6" role="region" aria-labelledby="question-6">
+              <p>Да. Вы можете не обсуждать тему, к которой пока не готовы, попросить о паузе или остановить работу. Ваш темп, границы и право выбирать — важная часть процесса.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacts" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">К себе с Надеждой</span>
+          <h2 id="contact-title">Начать можно<br>со знакомства</h2>
+          <p class="contact-description">Если вам важно сначала познакомиться и понять, подходит ли такой формат работы, можно начать с бесплатной ознакомительной встречи.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button" href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer">Записаться на знакомство <span class="button-arrow" aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="https://www.b17.ru/vishnevskaya_nadezhda/" target="_blank" rel="noopener noreferrer">Посмотреть профиль на B17 <span aria-hidden="true">↗</span></a>
+          <p class="contact-small">Бесплатно · 15–25 минут · без обязательства продолжать</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <p class="footer-name">Надежда Вишневская</p>
+          <p class="footer-about">Практический психолог, специалист по работе с психотравмой.<br>Взрослые 18+ · онлайн · Санкт-Петербург · Петергоф.<br>Очные встречи — по предварительной договорённости.</p>
+          <div class="footer-links">
+            <a href="https://t.me/Nadin_Cherry" target="_blank" rel="noopener noreferrer" aria-label="Написать Надежде в Telegram, откроется новая вкладка">Telegram ↗</a>
+            <a href="https://www.b17.ru/vishnevskaya_nadezhda/" target="_blank" rel="noopener noreferrer" aria-label="Профиль Надежды на B17, откроется новая вкладка">Профиль на B17 ↗</a>
+          </div>
+        </div>
+        <div class="footer-disclaimer">
+          <p>Терапия идентичности — психологический подход. Работа ведётся в рамках психологического консультирования и не является медицинской услугой.</p>
+          <p>Я не являюсь службой экстренной помощи и не могу гарантировать немедленный ответ в сообщениях. Если ситуация требует немедленной помощи, обратитесь в местные экстренные службы.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>К себе с Надеждой</span>
+        <span>Слышать себя. Различать своё. Выбирать.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      'use strict';
+
+      /* Мобильное меню: переключение, закрытие по ссылке и Escape. */
+      const menuButton = document.querySelector('.menu-toggle');
+      const navigation = document.querySelector('#navigation');
+      const mobileLayout = window.matchMedia('(max-width: 820px)');
+
+      function setMenu(open, restoreFocus = false) {
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+        navigation.classList.toggle('is-open', open);
+        if (restoreFocus) menuButton.focus();
+      }
+
+      menuButton.addEventListener('click', () => {
+        setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+      });
+
+      navigation.addEventListener('click', event => {
+        if (event.target.closest('a') && mobileLayout.matches) setMenu(false);
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+          setMenu(false, true);
+        }
+      });
+
+      document.addEventListener('click', event => {
+        if (!event.target.closest('.header') && menuButton.getAttribute('aria-expanded') === 'true') {
+          setMenu(false);
+        }
+      });
+
+      function resetMenu() {
+        const focusWillBeHidden = mobileLayout.matches && navigation.contains(document.activeElement);
+        setMenu(false, focusWillBeHidden);
+      }
+
+      if (mobileLayout.addEventListener) {
+        mobileLayout.addEventListener('change', resetMenu);
+      } else {
+        mobileLayout.addListener(resetMenu);
+      }
+
+      /* Без JavaScript ответы доступны; после инициализации включается аккордеон. */
+      const questions = Array.from(document.querySelectorAll('.faq-question'));
+
+      function setAnswer(button, open) {
+        button.setAttribute('aria-expanded', String(open));
+        document.getElementById(button.getAttribute('aria-controls')).hidden = !open;
+      }
+
+      questions.forEach(button => {
+        setAnswer(button, false);
+        button.addEventListener('click', () => {
+          setAnswer(button, button.getAttribute('aria-expanded') !== 'true');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
